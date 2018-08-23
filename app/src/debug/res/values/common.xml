@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">[DEV] RosidFood</string>
+    <string name="okhttp_log_level">BODY</string>
+    <string name="server_url">http://swarawan.com</string>
+</resources>
