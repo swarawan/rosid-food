@@ -44,3 +44,5 @@ captures/
 /sign.gradle
 /app/production/
 /app/dev/
+
+google-services.json

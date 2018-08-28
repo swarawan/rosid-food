@@ -33,6 +33,7 @@ class MainActivity : CoreActivity() {
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {
+        selectedDate()
         imageArrowLeft.setOnClickListener { selectedDate(-1) }
         imageArrowRight.setOnClickListener { selectedDate(1) }
         textDate.setOnClickListener { showPickerDialog() }
@@ -48,7 +49,7 @@ class MainActivity : CoreActivity() {
         loadData()
     }
 
-    private fun selectedDate(amount: Int) {
+    private fun selectedDate(amount: Int = 0) {
         currentCalendar.add(Calendar.DATE, amount)
         textDate.text = format.format(currentCalendar.time)
         loadSubject.onNext(currentCalendar)
