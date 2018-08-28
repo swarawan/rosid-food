@@ -10,7 +10,6 @@ class AppPreference(private val corePreferences: CorePreferences) {
 
     companion object {
         const val ACCESS_TOKEN = "accessToken"
-        const val RAW_TOKEN = "rawToken"
         const val USER_ID = "userId"
         const val NAME = "name"
         const val EMAIL = "email"
@@ -18,12 +17,8 @@ class AppPreference(private val corePreferences: CorePreferences) {
     }
 
     var accessToken: String
-        get() = "Bearer ${corePreferences.getString(ACCESS_TOKEN, TextUtils.BLANK)}"
+        get() = corePreferences.getString(ACCESS_TOKEN, TextUtils.BLANK)
         set(accessToken) = corePreferences.setString(ACCESS_TOKEN, accessToken)
-
-    var rawToken: String
-        get() = corePreferences.getString(RAW_TOKEN, TextUtils.BLANK)
-        set(rawToken) = corePreferences.setString(RAW_TOKEN, rawToken)
 
     var userId: String
         get() = corePreferences.getString(USER_ID, TextUtils.BLANK)
@@ -41,23 +36,21 @@ class AppPreference(private val corePreferences: CorePreferences) {
         get() = corePreferences.getString(PHONE, TextUtils.BLANK)
         set(address) = corePreferences.setString(PHONE, address)
 
-    fun setCredential(userName: String, userId: String, userEmail: String, userPhone: String, token: String) {
-        this.name = userName
-        this.userId = userId
-        this.email = userEmail
-        this.phone = userPhone
-        this.accessToken = token
-        this.rawToken = token
+    fun setCredential(userName: String?, userId: String?, userEmail: String?, userPhone: String?, token: String?) {
+        this.name = userName ?: TextUtils.BLANK
+        this.userId = userId ?: TextUtils.BLANK
+        this.email = userEmail ?: TextUtils.BLANK
+        this.phone = userPhone ?: TextUtils.BLANK
+        this.accessToken = token ?: TextUtils.BLANK
     }
 
     fun setToken(token: String) {
         this.accessToken = token
-        this.rawToken = token
     }
 
     fun clear() {
         corePreferences.clear()
     }
 
-    fun isUserLoggedIn(): Boolean = rawToken.isNotEmpty()
+    fun isUserLoggedIn(): Boolean = accessToken.isNotEmpty()
 }

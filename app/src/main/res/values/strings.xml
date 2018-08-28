@@ -1,2 +1,4 @@
 <resources>
+
+    <string name="failed_signin_google">Gagal masuk menggunakan Google</string>
 </resources>

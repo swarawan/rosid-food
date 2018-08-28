@@ -8,6 +8,7 @@ import com.swarawan.corelibrary.firebase.FirebaseModule
 import com.swarawan.corelibrary.network.NetworkModule
 import com.swarawan.corelibrary.sharedprefs.CorePreferencesModule
 import com.swarawan.try1.RosidFoodApplication
+import com.swarawan.try1.ui.login.LoginActivity
 import com.swarawan.try1.ui.main.MainActivity
 import dagger.Component
 import javax.inject.Singleton
@@ -31,4 +32,5 @@ interface DefaultComponent : CommonDeps {
     fun inject(app: RosidFoodApplication)
 
     fun inject(app: MainActivity)
+    fun inject(app: LoginActivity)
 }

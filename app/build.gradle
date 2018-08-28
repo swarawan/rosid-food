@@ -115,6 +115,12 @@ dependencies {
     implementation libraries.viewModelLiveData
     implementation libraries.rxViewModelLiveData
 
+    // Firebase
+    implementation libraries.firebaseAuth
+
+    // Google
+    implementation libraries.googleAuth
+
     // Crashlytics
 //    implementation(libraries.crashlytics) {
 //        transitive = true;
@@ -141,3 +147,5 @@ private String generateUniqueId() {
     String uniqueId = UUID.randomUUID()
     return uniqueId.replace("-", "").substring(0, 9)
 }
+
+apply plugin: 'com.google.gms.google-services'
